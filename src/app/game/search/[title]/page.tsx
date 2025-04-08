@@ -1,5 +1,3 @@
-export const dynamic = "force-dynamic";
-
 import { Container } from "@/components/container";
 import { GameCard } from "@/components/GameCard";
 import { Input } from "@/components/input";
@@ -18,15 +16,12 @@ async function getData(title: string) {
   }
 }
 
-// define tipo fora da função
 type PageProps = {
-  params: {
-    title: string;
-  };
+  params: Promise<{ title: string }>;
 };
 
 export default async function Search(props: PageProps) {
-  const title = props.params?.title;
+  const { title } = await props.params; 
 
   const games: GameProps[] = await getData(title);
 

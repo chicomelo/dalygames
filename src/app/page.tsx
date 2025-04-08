@@ -70,7 +70,7 @@ export default async function Home() {
         {
           gameData &&
             gameData.map((item) => (
-              <GameCard key={item.id} data={item}></GameCard>
+              <GameCard key={item.id} data={item} className="hover:scale-105"></GameCard>
             ))
          }
         </section>

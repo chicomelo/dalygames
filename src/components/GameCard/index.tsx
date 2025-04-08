@@ -3,16 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { BiRightArrowCircle } from "react-icons/bi";
 
-interface GameCardProps{
-    data: GameProps
-}
+interface GameCardProps {
+    data: GameProps;
+    className?: string; // opcional e tipado corretamente
+  }
 
-export function GameCard({data}: GameCardProps){
+  export function GameCard({ data, className }: GameCardProps) {
     return(
         <Link
             href={`/game/${data.id}`} 
-            className="p-4 mb-4 bg-slate-100 rounded-lg">
-            <div className="relative w-full h-56 hover:scale-105 transition-all duration-300">
+            className="block p-4 mb-4 bg-slate-100 rounded-lg">
+            <div className={`relative w-full h-56 transition-all duration-300 ${className}`}>
                 <Image
                     src={data.image_url}
                     alt={data.title}
